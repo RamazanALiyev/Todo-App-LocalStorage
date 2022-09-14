@@ -26,7 +26,7 @@ function Todos() {
   }, [todos]);
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (val) {
+    if (val && val.trim.length !== 0) {
       let newTask = {
         todoText: val,
         isChecked: false,
