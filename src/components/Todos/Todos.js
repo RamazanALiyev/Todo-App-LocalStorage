@@ -26,7 +26,6 @@ function Todos() {
   }, [todos]);
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(val.trim())
     if (val && val.trim().length !== 0) {
       let newTask = {
         todoText: val,
@@ -52,12 +51,20 @@ function Todos() {
   };
   const deleteAllItems = () => {
     setTodos([]);
-    localStorage.removeItem("localTasks");
-    toast.success("Tapşırıqlar silindi!!!", {
-      duration: 1500,
-      position: "top-left",
-      style: {},
-    });
+    if (localStorage.getItem('localTasks')) {
+      localStorage.removeItem("localTasks");
+      toast.success("Tapşırıqlar silindi!!!", {
+        duration: 1500,
+        position: "top-left",
+        style: {},
+      });
+    }else{
+      toast.error("Heç bir tapşırıq yoxdur!!!", {
+        duration: 1500,
+        position: "top-left",
+        style: {},
+      })
+    }
   };
   const deleteItem = (uniqueDel) => {
     setTodos(todos.filter((todo) => todo.id !== uniqueDel));
