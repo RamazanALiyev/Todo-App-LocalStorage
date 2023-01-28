@@ -58,7 +58,7 @@ function Todos() {
         position: "top-left",
         style: {},
       });
-    }else{
+    } else {
       toast.error("Heç bir tapşırıq yoxdur!!!", {
         duration: 1500,
         position: "top-left",
@@ -95,7 +95,7 @@ function Todos() {
   return (
     <div className="TodoParent">
       <div className="inputTodo">
-        <h1>TODO</h1>
+        <h1>Todo App</h1>
         <form onSubmit={handleSubmit}>
           <input
             value={val}
